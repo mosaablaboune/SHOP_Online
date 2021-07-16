@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block page-title %} Product Deleted Successfully {% endblock %}
+
+{% block content %}
+
+<section>
+    <div>
+        <h1 >Product deleted Successfully!</h1>
+        <a class="btn hvr-hover" href="{% url 'home' %}">Continue to homepage</a>
+    </div>
+</section>
+
+{% endblock %}
