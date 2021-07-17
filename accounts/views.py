@@ -1,11 +1,13 @@
 from django.http.response import HttpResponseBadRequest
-from .forms import SignUpForm, User
+from .forms import SignUpForm
 from .utils import send_confirmation_email
 from .tokens import confirm_email_token_generator
 
 from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib.auth import get_user_model
 
 # Create your views here.
+User = get_user_model()
 
 
 def signup(request):
