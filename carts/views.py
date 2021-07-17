@@ -24,11 +24,10 @@ def remove_from_cart(request, product_id):
     return redirect('cart')
 
 def clear_all(request):
-    product = get_object_or_404(Product)
 
     cart = Cart.objects.get(user=request.user)
 
-    cart.items.clear(product)
+    cart.items.clear()
 
     return redirect('cart')
 
@@ -37,8 +36,9 @@ def clear_all(request):
 def cart(request):
     user = request.user
     products = user.cart.items.all()
+    total_price = user.cart.total_price()
 
-    return render(request, 'carts/cart.html', {'products': products})
+    return render(request, 'carts/cart.html', {'products': products, 'total_price': total_price})
 
 
 
