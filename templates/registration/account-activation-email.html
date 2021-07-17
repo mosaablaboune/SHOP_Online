@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block head_title %}Reset Password{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <h1 class="section-headline">Hi {{ user.username }}</h1>
+        Please click on the link below to confirm your registration:
+
+        {{ domain }} {% url 'activate_email' uid=uid token=token %}
+    </div>
+</section>
+{% endblock %}
