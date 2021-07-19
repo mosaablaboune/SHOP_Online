@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 def home(request):
-    return redirect('products_list')
+    return redirect('product_list')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
