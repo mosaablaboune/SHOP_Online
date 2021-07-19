@@ -1,10 +1,11 @@
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http.response import HttpResponseBadRequest
+from django.contrib.auth import get_user_model
+
 from .forms import SignUpForm
 from .utils import send_confirmation_email
 from .tokens import confirm_email_token_generator
 
-from django.shortcuts import get_object_or_404, redirect, render
-from django.contrib.auth import get_user_model
 
 # Create your views here.
 User = get_user_model()
@@ -19,7 +20,7 @@ def signup(request):
             user.is_active = False
             user.save()
             send_confirmation_email(request, user)
-            return render(request, 'registration/signup-success.html', {'user': user})
+            return render(request, 'registration/signup_success.html')
     else:
         form = SignUpForm()
     

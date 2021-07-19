@@ -6,13 +6,15 @@ from .forms import AddProductForm
 
 
 # Create your views here.
-def products_list(request):
+def product_list(request):
     products = Product.objects.all()
-    return render(request, 'products/products-list.html', {'products': products})
+    return render(request, 'products/product_list.html', {'products': products})
 
 def product_details(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    return render(request, 'products/product-details.html', {'product': product})
+    return render(request, 'products/product_details.html', {'product': product})
+
+# CRUD Product
 
 def product_add(request):
     if  request.user.is_authenticated and request.user.is_superuser:
@@ -21,13 +23,13 @@ def product_add(request):
 
             if form.is_valid():
                 form.save()
-                return render(request, 'products/product-add-successful.html')
+                return render(request, 'products/product_add_success.html')
         else:
             form = AddProductForm()
         
-        return render(request, 'products/product-add.html', {'form': form})
+        return render(request, 'products/product_add.html', {'form': form})
     else:
-        return redirect('products_list')
+        return redirect('product_list')
 
 
 
@@ -40,11 +42,23 @@ def product_edit(request, pk):
 
             if form.is_valid():
                 form.save()
-                return render(request, 'products/product-add-successful.html')
+                return render(request, 'products/product_add_success.html')
         else:
             form = AddProductForm(instance=product)
         
-        return render(request, 'products/product-add.html', {'form': form})
+        return render(request, 'products/product_add.html', {'form': form})
     
     else:
-        return redirect('products_list')
+        return redirect('product_list')
+
+
+def product_delete(request, pk):
+   
+    if  request.user.is_authenticated and request.user.is_superuser:
+        product = get_object_or_404(Product, pk=pk).delete()
+        return render(request, 'products/product_delete.html', {'product': product})
+    
+    else:
+        return redirect('product_list')
+
+

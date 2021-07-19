@@ -11,7 +11,7 @@ def send_confirmation_email(request, user):
 
     subject = 'activate your account'
 
-    message = render_to_string('registration/account-activation-email.html', 
+    message = render_to_string('registration/account_activation_email.html', 
                                 {
                                     'user': user,
                                     'domain': domain,

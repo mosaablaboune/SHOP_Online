@@ -31,4 +31,4 @@ def order_list(request):
         orders = Order.objects.all()
         return render(request, 'orders/orders_list.html', {'orders': orders})
     else:
-        return redirect('products_list')
+        return redirect('product_list')

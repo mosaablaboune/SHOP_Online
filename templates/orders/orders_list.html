@@ -9,6 +9,7 @@
         <p>order address: {{ order.address }}</p>
         <p>order id: {{ order.id }}</p>
         <p>order total: {{ order.total_price }}</p>
+        <p>order time: {{ order.created_at }}</p>
     </li>
     {% empty %}
     <li>No orders yet.</li>
