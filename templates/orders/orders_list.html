@@ -2,17 +2,42 @@
 {% block head_title %}Orders{% endblock %}
 
 {% block content %}
-<ul>
-    {% for order in orders %}
-    <li>
-        <p>User: {{ order.user }}</p>
-        <p>order address: {{ order.address }}</p>
-        <p>order id: {{ order.id }}</p>
-        <p>order total: {{ order.total_price }}</p>
-        <p>order time: {{ order.created_at }}</p>
-    </li>
-    {% empty %}
-    <li>No orders yet.</li>
-    {% endfor %}
-</ul>
+
+
+<section class="form-section">
+    <h2 class="section-headline">Order</h2>
+    <p class="section-description">
+        Please Check all orders
+    </p>
+
+<div class="cart">
+    <ul>
+        {% for order in orders %}
+        <li class="item">
+            <div>
+                <h3>User: {{ order.user }}</h3>
+            </div>
+            <div>
+                <h4>order address: {{ order.address }}</h4>
+            </div>
+            <div>
+                <p>order id: {{ order.id }}</p>
+            </div>
+            <div>
+                <p>order total: {{ order.total_price }}</p>
+            </div>
+            <div>
+                <p>order time: {{ order.created_at }}</p>
+            </div>
+
+        </li>
+        {% empty %}
+        <li>
+            <p>No Orders yet.</p>
+            <a class="back" href="{% url 'home' %}">Go to Check the product</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</section>
 {% endblock %}

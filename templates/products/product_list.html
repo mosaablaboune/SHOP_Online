@@ -8,23 +8,23 @@
     <p class="section-description">
         Refresh your look with pieces of our winter collection
     </p>
+</section>
+    <!-- Featured Starts Here -->
 
-    <div class="products-wrapper clearfix">
+    <div class="row posts">
         {% for product in products %}
-        <div class="product">
-            <div class="product-img">
-                <img src="{{product.image.url}}" alt="">
-                <a href="{{product.get_absolute_url}}" class="details-btn">Details</a>
+        <div id="1" class="item new col-md-4">
+          <a href="{{product.get_absolute_url}}">
+            <div class="featured-item">
+                <img src="{{product.image.url}}" alt="Item 1">
+                <h4>{{ product.title | capfirst }}</h4>
+                <h5>{{ product.brand | capfirst }}</h5>
+                <h6>${{ product.price | floatformat:2 }}</h6>
             </div>
-            <div class="product-description">
-                <div class="product-brand">{{ product.brand | capfirst }}</div>
-                <a class="product-name" href="{{product.get_absolute_url}}">{{ product.title | capfirst }}</a>
-                <div class="product-price">${{ product.price | floatformat:2 }}</div>
-            </div>
+          </a>
         </div>
         {% empty %}
         <p>No products yet.</p>
         {% endfor %}
-    </div>
-</section>
+
 {% endblock %}

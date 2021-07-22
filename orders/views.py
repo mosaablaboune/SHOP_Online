@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Order
@@ -32,3 +32,13 @@ def order_list(request):
         return render(request, 'orders/orders_list.html', {'orders': orders})
     else:
         return redirect('product_list')
+
+#def order_done(request, order_id):
+    #if  request.user.is_authenticated and request.user.is_superuser:
+       # order = get_object_or_404(Order, pk=order_id).delete()
+      #  return render(request, 'orders/order_done.html', {'order': order})
+    
+ #   else:
+ #       return redirect('order_list')
+
+    

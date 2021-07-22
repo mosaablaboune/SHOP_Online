@@ -1,5 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http.response import HttpResponseBadRequest
+from django.contrib.auth.decorators import login_required
+
 from django.contrib.auth import get_user_model
 
 from .forms import SignUpForm
@@ -37,3 +39,27 @@ def activate_email(request, uid, token):
     
     else:
         return HttpResponseBadRequest('Bad Token')
+
+@login_required
+def update_profile(request, uid):
+    user = get_object_or_404(User, pk=uid)
+    if request.method == 'POST':
+        form = SignUpForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/updated_success.html')
+    else:
+        form = SignUpForm(instance=request.user)
+    
+    return render(request, 'registration/update_profile.html', {'form': form})
+
+@login_required
+def delete_account(request, uid):
+    user = get_object_or_404(User, pk=uid)
+    if request.method == 'POST':
+        user.delete()
+        return render(request, 'registration/deleted_success.html')
+
+
+

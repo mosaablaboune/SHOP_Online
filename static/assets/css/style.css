@@ -168,11 +168,13 @@ main {
 .section-headline{
     font-size: 30px;
     font-weight: normal;
-    margin: 0;
+    margin: 0px;
 }
 .section-description{
     color: #999;
     font-size: 18px;
+    margin-bottom: 100px;
+    margin-top: 30px;
 }
 .products-wrapper{
     margin: 60px 0 60px 0;
@@ -476,10 +478,10 @@ span.helptext {
     border-color: #ccc;
 }
 
-.cart-btn-box a {
+.product-details-desc .cart-btn-box a {
     padding: 15px 30px;
     box-sizing: border-box;
-    background-color: #000;
+    background-color: #3A8BCD;
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
@@ -490,8 +492,10 @@ span.helptext {
     cursor: pointer;
     transition: background-color ease-in-out .3s;
 }
-.cart-btn-box a:hover{
-    background-color: #0cbb88;
+.product-details-desc .cart-btn-box a:hover{
+    background-color: #fff;
+    border: 2px solid #3A8BCD;
+    color: #3A8BCD;
 }
 
 /*Footer Rules*/
@@ -549,6 +553,14 @@ footer p{
     text-align: left;
     margin-left: 16px;
 }
+.cart h4 {
+    margin: 50px 0 0 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    margin-left: 16px;
+}
 
 .cart p {
     margin: 50px 0 0 0;
@@ -595,12 +607,15 @@ footer p{
     background: #f30;
 }
 
+.cart a.checkout{
+    background-color: #3A8BCD;
+}
 .cart a.checkout, .cart a.clear {
     display: block;
     width: 140px;
     line-height: 40px;
     font-size: 16px;
-    background: #222;
+    background: #3A8BCD;
     color: #fff;
     cursor: pointer;
     margin: 40px auto;
@@ -618,7 +633,7 @@ a.back {
     width: 220px;
     line-height: 40px;
     font-size: 16px;
-    background: #222;
+    background: #3A8BCD;
     color: #fff;
     cursor: pointer;
     margin: 40px auto;
