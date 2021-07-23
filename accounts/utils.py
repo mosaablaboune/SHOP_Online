@@ -1,6 +1,7 @@
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 
+
 from .tokens import confirm_email_token_generator
 
 

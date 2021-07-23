@@ -38,7 +38,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    
+
                     {% if user.is_authenticated %}
                     <li class="nav-item active">
                     <p class="nav-link" >Hi, {{ user.username }}</p>
@@ -54,7 +54,16 @@
                     <li class="nav-item">
                     <a href="{% url 'logout' %}" class="nav-link">Log out</a>
                     {% else %}
+
+                    <li class="nav-item">
+                        <a href="{% url 'signup' %}" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'signup' %}" class="nav-link">Contact us</a>
+                    </li>
                     <a href="{% url 'login' %}" class="nav-link">Login</a>
+                    <a href="{% url 'signup' %}" class="nav-link">Signup</a>
+
                     </li>
                     {% endif %}
 
